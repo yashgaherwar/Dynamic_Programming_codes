@@ -27,6 +27,7 @@ Constraints:
 class Solution {
 public:
     
+    // Type of:- Subset Sum Problem
     // Classic Dynamic Programming Problem
     // Extended Version of Knapsack
     
