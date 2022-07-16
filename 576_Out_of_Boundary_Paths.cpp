@@ -25,50 +25,53 @@ Constraints:
 
 /* Solution */
 
-// Classic Dynamic Programming Problem;
-// Memomization + Recursion --> Top Down DP
-// Time Complexity:- O(m*n*maxMoves)
-// Space Complexity:- O(m*n*maxMoves)
+class Solution {
+public:
 
-long long dp[51][51][51];           // Globally Declared 3Dimensional 'dp' Array;
+    // Classic Dynamic Programming Problem;
+    // Memomization + Recursion --> Top Down DP
+    // Time Complexity:- O(m*n*maxMoves)
+    // Space Complexity:- O(m*n*maxMoves)
 
-int fun(int m,int n,int maxMove, int i, int j){
-    
-    if(maxMove<0){                                  // if all moves are over then return zero                                                  
-        return 0;
-    }
-    
-    if(i<0 || j<0 || i>=m || j>=n){                 // This the important out of boundary conditions which is  the main part of this  question                                                                                                                                                                                                                                          
-        return 1;
-    }
-    
-    if(dp[i][j][maxMove]!=-1){                  // If the value at that index is already visited then simply return the value at that block                                                                                                                //
-        return dp[i][j][maxMove];
-    }
-    
-    
-    
-    long long lf = fun(m,n,maxMove-1,i,j-1);     // for left block
-    long long rg = fun(m,n,maxMove-1,i,j+1);     // for right block
-    long long up = fun(m,n,maxMove-1,i-1,j);     // for up block
-    long long dw = fun(m,n,maxMove-1,i+1,j);     // for down block
-    
-    
-    long long sum=(lf+rg+up+dw)%(1000000007);    // summing up the all the paths
-    
-    dp[i][j][maxMove]=sum;
-    
-    return dp[i][j][maxMove];                               //returnng the number of paths to move the ball out of the grid boundary       
-    
-}
+    long long dp[51][51][51];           // Globally Declared 3Dimensional 'dp' Array;
+
+    int fun(int m,int n,int maxMove, int i, int j){
+
+        if(maxMove<0){                                  // if all moves are over then return zero                                                  
+            return 0;
+        }
+
+        if(i<0 || j<0 || i>=m || j>=n){                 // This the important out of boundary conditions which is  the main part of this  question                                                                                                                                                                                                                                          
+            return 1;
+        }
+
+        if(dp[i][j][maxMove]!=-1){                  // If the value at that index is already visited then simply return the value at that block                                                                                                                //
+            return dp[i][j][maxMove];
+        }
 
 
-int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
-    
-    if(maxMove==0){                              // Base condition:- if maxMoves is zero then simply return 0                                        
-        return 0;
+
+        long long lf = fun(m,n,maxMove-1,i,j-1);     // for left block
+        long long rg = fun(m,n,maxMove-1,i,j+1);     // for right block
+        long long up = fun(m,n,maxMove-1,i-1,j);     // for up block
+        long long dw = fun(m,n,maxMove-1,i+1,j);     // for down block
+
+
+        long long sum=(lf+rg+up+dw)%(1000000007);    // summing up the all the paths
+
+        dp[i][j][maxMove]=sum;
+
+        return dp[i][j][maxMove];                               //returnng the number of paths to move the ball out of the grid boundary       
+
     }
-    memset(dp,-1,sizeof(dp));                       // fill all the 3-D array with -1
-    return fun(m,n,maxMove,startRow,startColumn);   // Calling the fun for performing the given task                                                                               
-}
+
+
+    int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
+
+        if(maxMove==0){                              // Base condition:- if maxMoves is zero then simply return 0                                        
+            return 0;
+        }
+        memset(dp,-1,sizeof(dp));                       // fill all the 3-D array with -1
+        return fun(m,n,maxMove,startRow,startColumn);   // Calling the fun for performing the given task                                                                               
+    }
 };
