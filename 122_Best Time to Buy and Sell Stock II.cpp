@@ -29,8 +29,8 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
  
 Constraints:
 
-1 <= prices.length <= 3 * 104
-0 <= prices[i] <= 104
+1 <= prices.length <= 3 * 10^4
+0 <= prices[i] <= 10^4
 
 */
 
