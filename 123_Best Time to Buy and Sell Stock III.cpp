@@ -29,8 +29,8 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 Constraints:
 
-1 <= prices.length <= 105
-0 <= prices[i] <= 105
+1 <= prices.length <= 10^5
+0 <= prices[i] <= 10^5
 
 */
 
