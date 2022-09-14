@@ -38,6 +38,9 @@ rides[i].length == 3
 
 /* Solution */
 
+// Dynamic Programming Approach
+// Tabulation 
+
 class Solution {
     #define ll long long
 public:
