@@ -62,34 +62,5 @@ public:
         
         return false;
         
-             
-        
-        /*vector<int> pref(nums.size());
-        map<int,int> mp;
-        
-        pref[0]=nums[0];
-        
-        
-        for(int i=1;i<nums.size();i++){
-            pref[i]=pref[i-1]+nums[i];
-        }
-        
-        for(int i=0;i<pref.size();i++){
-            mp[pref[i]]++;
-        }
-        
-        for(auto i: mp){
-            if(i.second>1){
-                return true;
-            }
-        }
-        
-        for(int i=1;i<pref.size();i++){
-            if(pref[i]%k==0){
-                return true;
-            }
-        }
-        
-        return false;*/
     }
 };
